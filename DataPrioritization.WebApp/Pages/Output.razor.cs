@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.Extensions.Options;
-using System;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Components.Forms;
-using DataPrioritization.Models;
+﻿using DataPrioritization.Models;
 using DataPrioritization.WebApp.Utility;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.Extensions.Options;
 //inject ILogger<FileUpload1> Logger
 //inject IWebHostEnvironment Environment
 
