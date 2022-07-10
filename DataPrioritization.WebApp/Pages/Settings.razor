@@ -1,0 +1,63 @@
+﻿@page "/settings"
+
+
+<PageTitle>@_pageTile</PageTitle>
+
+
+<h1>@_pageTile</h1>
+
+<div class="row">&nbsp;</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">Config File</div>
+            <div class="card-body">
+                <InputFile OnChange="@UploadFiles" />
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-success" @onclick="LoadSettings">Load Setting</button>
+                <button class="btn btn-primary" @onclick="Clear">Clear</button>
+                @*<button class="btn btn-primary" @onclick="CreateFile">Create File</button>*@
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+@if (settings != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card border border-danger">
+                @*<div class="card-header bg-danger text-white">
+                    Total Nodes (@distinctNodes.Count)
+                </div>*@
+                <div class="card-body">
+                    
+                    <ul style="list-style-type:none;">
+                        @foreach (var setting in settings)
+                        {
+                            <li ><div class="bg-danger text-white" style="display:inline; padding:15px;"><b>@setting.Item1</b></div>
+                                <ul class="node-list" style="display:inline">
+                                    @foreach (var node in setting.Item2)
+                                    {
+                                        <li class="node-item border border-danger" style="padding:10px;">@node</li>
+                                        @*<li class="node-item">&nbsp;</li>*@
+                                    }
+                                </ul>
+                                
+                            </li>
+                            <li>&nbsp;</li>
+                            
+                        }
+                    </ul>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+

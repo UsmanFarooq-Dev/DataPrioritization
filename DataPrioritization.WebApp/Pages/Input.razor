@@ -1,0 +1,82 @@
+﻿@page "/input"
+
+
+<PageTitle>@_pageTile</PageTitle>
+
+@*@using BlazorApp.Data*@
+@*@inject WeatherForecastService ForecastService*@
+
+<h1>@_pageTile</h1>
+
+<div class="row">&nbsp;</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header"><b>Input File</b></div>
+            <div class="card-body">
+                <InputFile OnChange="@UploadFiles" />
+            </div>
+            <div class="card-footer">
+                @if(isLoading)
+                {
+                    <span>Uploading File</span>
+                }
+                else
+                {
+                    <button class="btn btn-primary" @onclick="LoadNodes">Load Nodes</button>
+                    <button class="btn btn-primary" @onclick="ClearNodes">Clear Nodes</button>
+                    @*<button class="btn btn-primary" @onclick="CreateFile">Create File</button>*@
+                }
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr />
+@if (distinctNodes != null)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card border border-danger">
+                <div class="card-header bg-danger text-white">
+                    <b>Total Nodes (@distinctNodes.Count)</b>
+                </div>
+                <div class="card-body">
+                    <ul class="node-list">
+                        @foreach (var node in distinctNodes)
+                        {
+                            <li class="node-item"><div class="card border border-danger"><div class="card-body">Node: @node</div></div></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+@if (allNodes != null)
+{
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-white">
+                    <b>Total Entries (@allNodes.Count)</b>
+                </div>
+                <div class="card-body">
+                    <ul class="node-list">
+                        @foreach (var node in allNodes)
+                        {
+                            <li class="node-item"><div class="card border border-primary"><div class="card-body">@node</div></div></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

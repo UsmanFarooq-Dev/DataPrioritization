@@ -1,0 +1,140 @@
+﻿@page "/output"
+
+
+<PageTitle>@_pageTile</PageTitle>
+
+@*@using BlazorApp.Data*@
+@*@inject WeatherForecastService ForecastService*@
+
+<h1>@_pageTile</h1>
+
+<div class="row">&nbsp;</div>
+<hr />
+
+<button class="btn btn-primary" @onclick="StartProcess">Start Proceess</button>
+@*<button class="btn btn-primary" @onclick="StopProcess">Stop Proceess</button>*@
+<br />
+<br />
+
+@if (allNodes != null)
+{
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-white">
+                    <b>Total Entries (@allNodes.Count)</b>
+                </div>
+                <div class="card-body">
+                    <ul class="node-list">
+                        @foreach (var node in allNodes)
+                        {
+                            <li class="node-item"><div class="card border border-primary"><div class="card-body">@node</div></div></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+@if (que1 != null && que2 != null && que3 != null && que4 != null && que5 != null)
+{
+    <div class="row">
+        <div class="col-12"></div>
+
+        <div class="card-group">
+            <div class="card">
+                <div class="card-header bg-danger text-white fw-bold text-center">Que 1</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var item in que1)
+                        {
+                            <li class="node-item border border-danger">
+                                @item
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-success text-white fw-bold text-center">Que 2</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var item in que2)
+                        {
+                            <li class="node-item border border-danger">
+                                @item
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-primary text-white fw-bold text-center">Que 3</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var item in que3)
+                        {
+                            <li class="node-item border border-danger">
+                                @item
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-warning text-white fw-bold text-center">Que 4</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var item in que4)
+                        {
+                            <li class="node-item border border-danger">
+                                @item
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-dark text-white fw-bold text-center">Que 5</div>
+                <div class="card-body">
+                    <ul>
+                        @foreach (var item in que5)
+                        {
+                            <li class="node-item border border-danger">
+                                @item
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<hr />
+@if (output != null)
+{
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="card border border-primary">
+                <div class="card-header bg-primary text-white">
+                    <b>Total Entries (@output.Count)</b>
+                </div>
+                <div class="card-body">
+                    <ul class="node-list">
+                        @foreach (var node in output)
+                        {
+                            <li class="node-item"><div class="card border border-primary"><div class="card-body">@node</div></div></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
