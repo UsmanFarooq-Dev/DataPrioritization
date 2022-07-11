@@ -102,7 +102,7 @@ public partial class Output
         //Thread.Sleep(3000);
         for (int j = 0; j < batches.Count; j++) // each batch
         {
-            await Task.Delay(4000);
+            await Task.
 
             que1 = new List<int>();
             que2 = new List<int>();
